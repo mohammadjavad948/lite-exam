@@ -54,7 +54,8 @@ class QuestPolicy
      */
     public function update(User $user, Quest $quest)
     {
-        return $user->id === $quest->exam()->user_id;
+        $q = $quest->exam;
+        return $user->id == $q["user_id"];
     }
 
     /**
@@ -66,7 +67,8 @@ class QuestPolicy
      */
     public function delete(User $user, Quest $quest)
     {
-        return $user->id === $quest->exam()->user_id;
+        $q = $quest->exam;
+        return $user->id == $q["user_id"];
     }
 
     /**

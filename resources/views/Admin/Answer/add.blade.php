@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('content_header')
-    <h1>add quest</h1>
+    <h1>add answer</h1>
 @endsection
 
 @section('content')

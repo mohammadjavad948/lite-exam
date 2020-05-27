@@ -28,7 +28,7 @@ class QuestController extends Controller
      */
     public function index()
     {
-
+        return redirect()->back();
     }
 
     /**
@@ -67,22 +67,27 @@ class QuestController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Quest  $quest
-     * @return \Illuminate\Http\Response
+     *
      */
     public function show(Quest $quest)
     {
-        //
+        return redirect()->back();
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Quest  $quest
-     * @return \Illuminate\Http\Response
+     *
      */
     public function edit(Quest $quest)
     {
-        //
+        \session([
+           'quest_id' => $quest->id
+        ]);
+        return view('Admin.Quest.edit',[
+            'data' => $quest
+        ]);
     }
 
     /**
@@ -90,22 +95,31 @@ class QuestController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Quest  $quest
-     * @return \Illuminate\Http\Response
+     *
      */
     public function update(Request $request, Quest $quest)
     {
-        //
+        \session([
+           'quest' => $request->quest,
+           'count' => $request->count,
+            'exam_id' => $quest->exam_id
+        ]);
+
+        return redirect()->route('answer.edit',3);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Quest  $quest
-     * @return \Illuminate\Http\Response
+     *
      */
     public function destroy(Quest $quest)
     {
-        //
+        $quest->answers()->delete();
+        $quest->userAnswers()->delete();
+        $quest->delete();
+        return redirect()->back();
     }
 
     public function validateRequest(Array $data){

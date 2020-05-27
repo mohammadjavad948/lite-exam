@@ -64,6 +64,11 @@ class AnswerController extends Controller
 
         }
 
+        session()->forget([
+            'exam_id',
+            'quest',
+            'count'
+        ]);
 
         return redirect()->route('quest.create');
     }
@@ -83,11 +88,16 @@ class AnswerController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Answer  $answer
-     * @return \Illuminate\Http\Response
+     *
      */
     public function edit(Answer $answer)
     {
-        //
+        $quest = Quest::whereExamId(session('exam_id'))->with('answers')->get();
+
+        return view('Admin.Answer.edit',[
+            'data' => $quest,
+            'count' => session('count')
+        ]);
     }
 
     /**
