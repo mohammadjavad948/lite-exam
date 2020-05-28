@@ -18,7 +18,7 @@ class Admin
     public function handle($request, Closure $next)
     {
         if (Gate::denies('Admin')){
-            return redirect()->route('home');
+            return redirect()->route('login');
         }
 
         return $next($request);

@@ -15,16 +15,21 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('landing');
     }
 
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     *
      */
     public function index()
     {
-        return view('home');
+        User::findOrFail(auth()->id())->givePermissionTo('Admin');
+        return redirect()->route('exam.index');
+    }
+
+    public function landing(){
+        return view('welcome');
     }
 }
