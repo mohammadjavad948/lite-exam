@@ -26,6 +26,11 @@
                         <div class="row">
                             <a href="{{route('exam.show',$d->id)}}" class="btn btn-success ml-2">view</a>
                             <a href="{{route('exam.edit',$d->id)}}" class="btn btn-warning ml-2">edit</a>
+                            @if($d->show)
+                                <a href="{{route('exam.down',$d->id)}}" class="btn btn-danger ml-2">uncheck</a>
+                            @else
+                                <a href="{{route('exam.up',$d->id)}}" class="btn btn-success ml-2">check</a>
+                            @endif
                             <form action="{{route('exam.destroy',$d->id)}}" method="post">
                                 @csrf
                                 @method('DELETE')

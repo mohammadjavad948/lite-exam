@@ -14,12 +14,20 @@ class MoreOptionController extends Controller
         $this->middleware('admin');
     }
 
-    public function show(){
+    public function show(Exam $exam){
+        $exam->update([
+           'show' => 1
+        ]);
 
+        return redirect()->back();
     }
 
-    public function hide(){
+    public function hide(Exam $exam){
+        $exam->update([
+           'show' => 0
+        ]);
 
+        return redirect()->back();
     }
 
     public function makeUrl(Exam $exam){
