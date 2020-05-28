@@ -81,7 +81,7 @@ class AnswerController extends Controller
      */
     public function show(Answer $answer)
     {
-        //
+        return redirect()->back();
     }
 
     /**
@@ -92,12 +92,7 @@ class AnswerController extends Controller
      */
     public function edit(Answer $answer)
     {
-        $quest = Quest::whereExamId(session('exam_id'))->with('answers')->get();
-
-        return view('Admin.Answer.edit',[
-            'data' => $quest,
-            'count' => session('count')
-        ]);
+        return redirect()->back();
     }
 
     /**
@@ -105,21 +100,21 @@ class AnswerController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Answer  $answer
-     * @return \Illuminate\Http\Response
+     *
      */
     public function update(Request $request, Answer $answer)
     {
-        //
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Answer  $answer
-     * @return \Illuminate\Http\Response
+     *
      */
     public function destroy(Answer $answer)
     {
-        //
+        return redirect()->back();
     }
 }

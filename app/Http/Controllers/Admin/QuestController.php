@@ -82,12 +82,7 @@ class QuestController extends Controller
      */
     public function edit(Quest $quest)
     {
-        \session([
-           'quest_id' => $quest->id
-        ]);
-        return view('Admin.Quest.edit',[
-            'data' => $quest
-        ]);
+        return redirect()->back();
     }
 
     /**
@@ -99,13 +94,7 @@ class QuestController extends Controller
      */
     public function update(Request $request, Quest $quest)
     {
-        \session([
-           'quest' => $request->quest,
-           'count' => $request->count,
-            'exam_id' => $quest->exam_id
-        ]);
-
-        return redirect()->route('answer.edit',3);
+        return redirect()->back();
     }
 
     /**
