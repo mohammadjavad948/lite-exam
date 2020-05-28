@@ -15,6 +15,9 @@ class MoreOptionController extends Controller
     }
 
     public function show(Exam $exam){
+
+        $this->authorize('view', $exam);
+
         $exam->update([
            'show' => 1
         ]);
@@ -23,6 +26,9 @@ class MoreOptionController extends Controller
     }
 
     public function hide(Exam $exam){
+
+        $this->authorize('view', $exam);
+
         $exam->update([
            'show' => 0
         ]);
@@ -31,6 +37,9 @@ class MoreOptionController extends Controller
     }
 
     public function makeUrl(Exam $exam){
+
+        $this->authorize('view', $exam);
+
         return route('quiz.start',$exam->slug);
     }
 }
