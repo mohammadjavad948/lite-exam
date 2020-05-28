@@ -22,5 +22,7 @@ Route::resources([
     '/answer' => 'Admin\AnswerController'
 ]);
 
+Route::get('/quiz/{exam}','QuizController@startQuiz')->name('quiz.start');
+
 Auth::routes();
 
