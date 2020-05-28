@@ -28,9 +28,6 @@
                                     <button type="submit" class="btn btn-danger">remove</button>
                                 </form>
                             </div>
-                            <div class="col">
-                                <a href="{{route('quest.edit',$d["id"])}}" class="btn btn-warning">edit</a>
-                            </div>
                         </div>
             </div>
         </div>
