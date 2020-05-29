@@ -15,3 +15,7 @@ first clone or download this repository.
 then open the command line in the root of project and run the following command :
 
 composer install
+
+## note!!
+
+this project **is not ready** to use now!! 
