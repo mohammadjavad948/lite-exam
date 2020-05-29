@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="#" method="post">
+    <form action="{{route('exam.save')}}" method="post">
         @csrf
 
         @php
@@ -13,10 +13,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col d-flex justify-content-center">
-                        <div class="card w-75">
-                            <h1 class="card-title">
+                        <div class="card w-75 mt-3" style="padding: 8px;">
+                            <div class="card-title" style="font-size: 28px;">
                                 {!! $d["quest"] !!}
-                            </h1>
+                            </div>
                             <div class="card-body">
                                 @php
                                     $x = 1;
@@ -44,5 +44,10 @@
                 $i++;
             @endphp
         @endforeach
+        <div class="container">
+            <div class="row d-flex justify-content-center mt-5">
+                <button type="submit" class="btn btn-success">submit</button>
+            </div>
+        </div>
     </form>
 @endsection

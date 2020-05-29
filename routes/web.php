@@ -31,6 +31,8 @@ Route::get('/exam/show/{exam}','Admin\MoreOptionController@show')
 Route::get('/exam/hide/{exam}','Admin\MoreOptionController@hide')
     ->name('exam.down');
 
+Route::post('/send','QuizController@save')
+    ->name('exam.save');
 
 Auth::routes();
 
