@@ -78,7 +78,8 @@ class ExamController extends Controller
         $quest = Quest::where('exam_id',$exam->id)->with('answers')->get();
         return response()->view('Admin.Exam.view',[
             'title' => $exam->name,
-            'quest' => $quest
+            'quest' => $quest,
+            'slug' => $exam->slug
         ]);
     }
 

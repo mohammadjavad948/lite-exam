@@ -1,7 +1,13 @@
 @extends('adminlte::page')
 
 @section('content_header')
-    <h1>{{$title}}</h1>
+    <div class="row">
+        <h1 class="col">{{$title}}</h1>
+        <p>
+            link for share to people :
+            {{route('quiz.start',$slug)}}
+        </p>
+    </div>
 @endsection
 
 @section('content')

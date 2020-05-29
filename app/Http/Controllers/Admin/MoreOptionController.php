@@ -35,11 +35,4 @@ class MoreOptionController extends Controller
 
         return redirect()->back();
     }
-
-    public function makeUrl(Exam $exam){
-
-        $this->authorize('view', $exam);
-
-        return route('quiz.start',$exam->slug);
-    }
 }

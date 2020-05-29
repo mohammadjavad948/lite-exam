@@ -22,7 +22,7 @@ Route::resources([
     '/answer' => 'Admin\AnswerController'
 ]);
 
-Route::get('/quiz/{exam}','QuizController@startQuiz')
+Route::get('/quiz/{exam:slug}','QuizController@startQuiz')
     ->name('quiz.start');
 
 Route::get('/exam/show/{exam}','Admin\MoreOptionController@show')
@@ -31,8 +31,6 @@ Route::get('/exam/show/{exam}','Admin\MoreOptionController@show')
 Route::get('/exam/hide/{exam}','Admin\MoreOptionController@hide')
     ->name('exam.down');
 
-Route::get('/exam/getUrl/{exam}','Admin\MoreOptionController@makeUrl')
-    ->name('exam.getUrl');
 
 Auth::routes();
 
