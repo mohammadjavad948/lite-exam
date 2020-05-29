@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="{{route('exam.save')}}" method="post">
+    <form action="{{route('exam.savequiz')}}" method="post">
         @csrf
 
         @php

@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/','HomeController@landing');
+Route::get('/','HomeController@landing')->name('landing');
 
 Route::get('/home','HomeController@index')->name('home');
 
@@ -32,7 +32,7 @@ Route::get('/exam/hide/{exam}','Admin\MoreOptionController@hide')
     ->name('exam.down');
 
 Route::post('/send','QuizController@save')
-    ->name('exam.save');
+    ->name('exam.savequiz');
 
 Auth::routes();
 
